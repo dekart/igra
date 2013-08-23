@@ -1,0 +1,4 @@
+RAILS_ENV=production bundle exec rake assets:clobber assets:precompile
+git add public/assets
+git commit -am "Updated precompiled assets"
+git push heroku master
