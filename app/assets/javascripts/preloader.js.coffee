@@ -1,6 +1,9 @@
+#= require art
+
 window.Preloader = class
   manifest: [
     { src: '$assetPath(logo.jpg)' }
+    { src: '$assetPath(art.png)' }
   ]
 
   constructor: (@callback)->
@@ -10,7 +13,7 @@ window.Preloader = class
     loader.loadManifest(@.manifest)
 
   onComplete: (args...)=>
-#    @.fillTextureCache($assetPath('art.png'), artSprite)
+    @.fillTextureCache('$assetPath(art.png)', artSprite)
 
     @callback.call()
 
