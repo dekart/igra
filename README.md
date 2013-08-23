@@ -3,6 +3,15 @@ igra
 
 A skeleton Ruby on Rails application for HTML5+JavaScript games
 
+Installation
+------------
+
+This application skeleton is a Ruby on Rails application which means you'll need to install Ruby language interpreter and Rails framework.
+
+To install Ruby please check this page: http://www.ruby-lang.org/en/downloads/
+
+To install Rails please check this page: http://rubyonrails.org/download
+
 Setup
 -----
 
