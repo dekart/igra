@@ -33,6 +33,8 @@ module Igra
     config.compass.generated_images_dir = "public/assets/sprites"
     config.compass.http_generated_images_path = "/assets/sprites"
 
-    config.assets.initialize_on_precompile = false
+    config.assets.paths << Rails.root.join("app/assets/sounds").to_s << Rails.root.join("vendor/assets/flash").to_s
+
+    config.assets.initialize_on_precompile = true
   end
 end

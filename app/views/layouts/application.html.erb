@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <%= javascript_tag do %>
+    var load_started_at = Date.now();
+  <% end %>
+
   <title><%= I18n.t("game.name") %></title>
 
   <%= stylesheet_link_tag    "application", media: "all" %>
@@ -44,21 +48,28 @@
     }(document, 'script', 'facebook-jssdk'));</script>
   <% end %>
 
-  <%= yield %>
+  <div id='preloader'>
+    <div class='progress'></div>
+    <div class="label">Loading...</div>
+  </div>
 
-  <div id="social_bar">
-    <% if Settings.facebook_app_id %>
-      <div class="facebook">
-        <div class="fb-like" data-href="<%= root_url %>" data-width="200" data-colorscheme="dark" data-layout="button_count" data-show-faces="true" data-send="false"></div>
-      </div>
-    <% end %>
+  <div id="game_screen">
+    <%= yield %>
 
-    <% if Settings.twitter_login %>
-      <div class="twitter">
-        <a href="https://twitter.com/share" class="twitter-share-button" data-via="<%= Settings.twitter_login %>">Tweet</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-      </div>
-    <% end %>
+    <div id="social_bar">
+      <% if Settings.facebook_app_id %>
+        <div class="facebook">
+          <div class="fb-like" data-href="<%= root_url %>" data-width="200" data-colorscheme="dark" data-layout="button_count" data-show-faces="true" data-send="false"></div>
+        </div>
+      <% end %>
+
+      <% if Settings.twitter_login %>
+        <div class="twitter">
+          <a href="https://twitter.com/share" class="twitter-share-button" data-via="<%= Settings.twitter_login %>">Tweet</a>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </div>
+      <% end %>
+    </div>
   </div>
 
   <%= javascript_include_tag "application" %>
