@@ -28,6 +28,7 @@ gem "settingslogic"
 
 group :development do
   gem 'awesome_print'
+  gem 'heroku'
 end
 
 group :doc do
