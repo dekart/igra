@@ -2,3 +2,8 @@ development:
   facebook_app_id: 118981661496259
   twitter_login: dekart1234
   google_analytics_id: UA-111105-32
+
+production:
+  facebook_app_id: 118981661496259
+  twitter_login: dekart1234
+  google_analytics_id: UA-111105-32
