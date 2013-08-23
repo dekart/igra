@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Igra::Application.config.secret_key_base = '3d0674ec8961de3cea4b610055573cde8481adec088df87e9f32445966b58e08d8869e512384cae4cd7c188a64b223633c9e96a1123c42518211b6e88167b2c6'
+Igra::Application.config.secret_key_base = '8b3bb95ad5079c6a79e516f632c93ccd4067f21d0d3eeb1a64fd01eb1e356d60c58281be1a19a8562269df1ca378872c02875be776e3852e90110f8db59b8a2b'
