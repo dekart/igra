@@ -30,16 +30,21 @@ body{
 
 #game_screen {
   visibility: hidden;
+
+  h1 {
+    text-align: center;
+  }
 }
 
 #social_bar {
   margin-top: 30px;
   padding: 30px 50px;
   border-top: 1px solid #282828;
+  text-align: center
 
   .facebook, .twitter {
     display: inline-block;
     height: 30px;
-    margin-right: 15px;
+    margin: 0 15px;
   }
 }
