@@ -20,4 +20,6 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  game:
+    name: "My Game"
+    description: "My super game made for fun and profit"

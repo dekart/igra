@@ -1,14 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Igra</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <title><%= I18n.t("game.name") %></title>
+
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+
+  <% if Settings.facebook_app_id %>
+    <meta property="fb:app_id"      content="<%= Settings.facebook_app_id %>" />
+    <meta property="og:type"        content="website"/>
+    <meta property="og:site_name"   content="<%= I18n.t("game.name") %>"/>
+    <meta property="og:image"       content="<%= image_url('logo.jpg') %>"/>
+    <meta property="og:title"       content="<%= I18n.t("game.name") %>"/>
+    <meta property="og:description" content="<%= I18n.t("game.description") %>"/>
+    <meta property="og:url"         content="<%= root_url %>" />
+  <% end %>
 </head>
 <body>
+  <% if Settings.facebook_app_id %>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=<%= Settings.facebook_app_id %>";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+  <% end %>
 
-<%= yield %>
+  <%= yield %>
 
+  <div id="social_bar">
+    <% if Settings.facebook_app_id %>
+      <div class="facebook">
+        <div class="fb-like" data-href="<%= root_url %>" data-width="200" data-colorscheme="dark" data-layout="button_count" data-show-faces="true" data-send="false"></div>
+      </div>
+    <% end %>
+
+    <% if Settings.twitter_login %>
+      <div class="twitter">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="<%= Settings.twitter_login %>">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      </div>
+    <% end %>
+  </div>
 </body>
 </html>
