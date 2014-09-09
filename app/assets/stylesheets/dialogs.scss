@@ -1,0 +1,40 @@
+.dialog {
+  z-index: 1000;
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  top: 100px;
+  left: calc(50% - 250px);
+
+  background: image-url('dialog.png');
+
+  .content {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 480px;
+  }
+
+  .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    border: none;
+    margin: 0;
+    padding: 0;
+    background: none;
+  }
+}
+
+.dialog_overlay {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
