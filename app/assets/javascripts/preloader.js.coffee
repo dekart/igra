@@ -1,19 +1,24 @@
 #= require art
 
 window.Preloader = class
-  manifest: [
-    { src: '$assetPath(logo.jpg)' }
-    { src: '$assetPath(art.png)' }
-  ]
+  @paths:
+    logo: '$assetPath(logo.jpg)'
+    art: '$assetPath(art.png)'
+
+  manifest:
+    for key, path of @.paths
+      { src: path }
 
   constructor: (@callback)->
+    @.paths = @.constructor.paths
+
     loader = new createjs.LoadQueue()
     loader.onComplete = @.onComplete
     loader.onFileLoad = @.onProgress
     loader.loadManifest(@.manifest)
 
   onComplete: (args...)=>
-    @.fillTextureCache('$assetPath(art.png)', artSprite)
+    @.fillTextureCache(@.paths.art, artSprite)
 
     @callback.call()
 

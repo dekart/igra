@@ -90,6 +90,17 @@ window.Animator = class
 
     @textures[name]
 
+  prepareTextures: ->
+    return unless @.loops?
+
+    for id, animation of @.loops
+      animation.textures = []
+
+      for frame in [animation.frames[0] .. animation.frames[1]]
+        animation.textures.push(
+          PIXI.Texture.fromFrame("#{ id }_#{ @.zeroPad(frame, 4) }.png")
+        )
+
   detachRenderer: ->
     if @renderer.view.parentNode
       @renderer.view.parentNode.removeChild(@renderer.view)
