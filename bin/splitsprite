@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+
+sprite_folder = File.expand_path("../../tmp/sprites", __FILE__)
+asset_folder = File.expand_path("../../app/assets", __FILE__)
+
+%w{art}.each do |sprite|
+  data = File.read(File.join(sprite_folder, "#{ sprite }.sassjson"))
+
+  scss, js, _ = data.split('------')
+
+  File.open(File.join(asset_folder, "stylesheets", "#{sprite}.scss"), 'w+') do |f|
+    f.write(scss)
+  end
+
+  File.open(File.join(asset_folder, "javascripts", "#{sprite}.js"), 'w+') do |f|
+    f.write(js)
+  end
+end
