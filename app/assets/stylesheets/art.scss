@@ -1,0 +1,58 @@
+@function sprite_image_url(){
+  @return image-url('art.png');
+}
+
+
+@function sprite_position_object_0000(){
+  @return -2px -2px;
+}
+@mixin sprite_object_0000($width: 50px, $height: 50px) {
+  width: $width;
+  height: $height;
+  background: {
+    repeat: no-repeat;
+    image: sprite_image_url();
+    position: sprite_position_object_0000();
+  }
+}
+
+@function sprite_position_object_0001(){
+  @return -54px -2px;
+}
+@mixin sprite_object_0001($width: 50px, $height: 50px) {
+  width: $width;
+  height: $height;
+  background: {
+    repeat: no-repeat;
+    image: sprite_image_url();
+    position: sprite_position_object_0001();
+  }
+}
+
+@function sprite_position_object_0002(){
+  @return -106px -2px;
+}
+@mixin sprite_object_0002($width: 50px, $height: 50px) {
+  width: $width;
+  height: $height;
+  background: {
+    repeat: no-repeat;
+    image: sprite_image_url();
+    position: sprite_position_object_0002();
+  }
+}
+
+@function sprite_position_object_0003(){
+  @return -158px -2px;
+}
+@mixin sprite_object_0003($width: 50px, $height: 50px) {
+  width: $width;
+  height: $height;
+  background: {
+    repeat: no-repeat;
+    image: sprite_image_url();
+    position: sprite_position_object_0003();
+  }
+}
+
+

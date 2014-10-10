@@ -13,7 +13,7 @@ window.FinishDialogController = class extends BaseController
   show: (@map, @station)->
     @.setupEventListeners()
 
-    @el.css(opacity: 0).appendTo('#game_screen')
+    @el.css(opacity: 0).appendTo('#canvas_container')
 
     @.render()
 

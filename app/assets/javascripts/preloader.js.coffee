@@ -2,7 +2,7 @@
 
 window.Preloader = class
   @paths:
-    logo: '$assetPath(logo.jpg)'
+    background: '$assetPath(background.jpg)'
     art: '$assetPath(art.png)'
 
   manifest:

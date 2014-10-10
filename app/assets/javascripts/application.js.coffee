@@ -29,7 +29,10 @@
 window.Application = class
   start: ->
     $('#preloader').hide()
-    $('#game_screen').css(visibility: 'visible')
+    $('#canvas_container').css(visibility: 'visible')
+
+    @game = new GameController()
+    @game.show()
 
 $ =>
   window.preloader = new Preloader(=>
