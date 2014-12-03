@@ -13,8 +13,8 @@ window.Preloader = class
     @.paths = @.constructor.paths
 
     loader = new createjs.LoadQueue()
-    loader.onComplete = @.onComplete
-    loader.onFileLoad = @.onProgress
+    loader.on('complete', @.onComplete)
+    loader.on('fileload', @.onProgress)
     loader.loadManifest(@.manifest)
 
   onComplete: (args...)=>

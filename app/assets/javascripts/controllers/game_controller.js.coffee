@@ -21,9 +21,9 @@ window.GameController = class extends BaseController
     $(document).on('keydown', @.onKeyDown)
     $(document).on('keyup', @.onKeyUp)
 
-    @el.on('touchstart', 'canvas', @.onTouchStart)
-    @el.on('touchmove', 'canvas', @.onTouchMove)
-    @el.on('touchend', 'canvas', @.onTouchEnd)
+    @el.on('mousedown touchstart', 'canvas', @.onTouchStart)
+    @el.on('mousemove touchmove', 'canvas', @.onTouchMove)
+    @el.on('mouseup touchend', 'canvas', @.onTouchEnd)
 
   render: ->
     @animator.deactivate()
@@ -36,7 +36,7 @@ window.GameController = class extends BaseController
     # Logic goes here
 
   updateMousePosition: (event)->
-    touchpoint = event.originalEvent.touches[0]
+    touchpoint = if event.originalEvent.touches? then event.originalEvent.touches[0] else event
 
     if touchpoint
       @canvas_offset ?= $(@animator.renderer.view).offset()

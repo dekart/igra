@@ -1,14 +1,14 @@
-ruby '2.0.0'
+ruby '2.1.2'
 
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+gem 'rails', '4.1.8'
 
 # JavaScript libraries
 gem 'therubyracer', platforms: :ruby
 gem 'yui-compressor'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails', '4.0.1'
 gem 'jquery-rails'
 gem 'i18n-js', :github => 'fnando/i18n-js'
 gem 'visibilityjs'
@@ -16,21 +16,22 @@ gem 'eco'
 gem 'spine-rails'
 
 # CSS libraries
-gem 'sass-rails', '~> 4.0.0'
-gem 'compass-rails', github: 'dekart/compass-rails', branch: 'fix_rails4_sprite_paths'
+gem 'sass', '~> 3.2.19'
+gem 'sass-rails', '~> 4.0.3'
+gem 'compass-rails'
 
 # Image libraries
 gem 'oily_png'
 
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
+gem 'oj'
 
 # Useful helpers
 gem "settingslogic"
 
 group :development do
   gem 'awesome_print'
-  gem 'heroku'
+  gem 'pry-rails'
+  gem 'rb-readline'
 end
 
 group :doc do
